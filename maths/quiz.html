@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Quiz</title>
+    <style>
+        .hidden { display: none; }
+        .correct { color: green; }
+        .incorrect { color: red; }
+        .quiz-container { margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Math Quiz: Fractions</h1>
+
+    <div id="quiz-container">
+        <div class="quiz-container" id="question1">
+            <p>1. What is 1/2 + 1/4?</p>
+            <button onclick="checkAnswer(1, 'A')">A) 3/4</button>
+            <button onclick="checkAnswer(1, 'B')">B) 1/2</button>
+            <button onclick="checkAnswer(1, 'C')">C) 5/4</button>
+            <button onclick="checkAnswer(1, 'D')">D) 1/4</button>
+            <div id="feedback1" class="hidden">
+                <p id="response1"></p>
+            </div>
+        </div>
+
+        <div class="quiz-container" id="question2">
+            <p>2. What is 3/4 - 1/8?</p>
+            <button onclick="checkAnswer(2, 'A')">A) 5/8</button>
+            <button onclick="checkAnswer(2, 'B')">B) 3/8</button>
+            <button onclick="checkAnswer(2, 'C')">C) 7/8</button>
+            <button onclick="checkAnswer(2, 'D')">D) 1/2</button>
+            <div id="feedback2" class="hidden">
+                <p id="response2"></p>
+            </div>
+        </div>
+
+        <div class="quiz-container" id="question3">
+            <p>3. What is 2/5 + 1/10?</p>
+            <button onclick="checkAnswer(3, 'A')">A) 3/5</button>
+            <button onclick="checkAnswer(3, 'B')">B) 4/10</button>
+            <button onclick="checkAnswer(3, 'C')">C) 1/2</button>
+            <button onclick="checkAnswer(3, 'D')">D) 6/10</button>
+            <div id="feedback3" class="hidden">
+                <p id="response3"></p>
+            </div>
+        </div>
+
+        <div class="quiz-container" id="question4">
+            <p>4. What is 5/6 - 1/3?</p>
+            <button onclick="checkAnswer(4, 'A')">A) 1/2</button>
+            <button onclick="checkAnswer(4, 'B')">B) 4/6</button>
+            <button onclick="checkAnswer(4, 'C')">C) 2/3</button>
+            <button onclick="checkAnswer(4, 'D')">D) 3/6</button>
+            <div id="feedback4" class="hidden">
+                <p id="response4"></p>
+            </div>
+        </div>
+
+        <div class="quiz-container" id="question5">
+            <p>5. What is 3/8 divided by 2?</p>
+            <button onclick="checkAnswer(5, 'A')">A) 3/16</button>
+            <button onclick="checkAnswer(5, 'B')">B) 6/8</button>
+            <button onclick="checkAnswer(5, 'C')">C) 1/4</button>
+            <button onclick="checkAnswer(5, 'D')">D) 1/8</button>
+            <div id="feedback5" class="hidden">
+                <p id="response5"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkAnswer(questionNumber, option) {
+            const feedback = document.getElementById(`feedback${questionNumber}`);
+            const response = document.getElementById(`response${questionNumber}`);
+
+            // Hide buttons for this question
+            const buttons = document.querySelectorAll(`#question${questionNumber} button`);
+            buttons.forEach(button => button.disabled = true);
+
+            switch(questionNumber) {
+                case 1:
+                    if (option === 'A') {
+                        response.innerText = 'Correct! 1/2 + 1/4 = 3/4';
+                        response.className = 'correct';
+                    } else {
+                        response.innerText = 'Incorrect. The correct answer is 3/4.';
+                        response.className = 'incorrect';
+                    }
+                    break;
+                case 2:
+                    if (option === 'A') {
+                        response.innerText = 'Correct! 3/4 - 1/8 = 5/8';
+                        response.className = 'correct';
+                    } else {
+                        response.innerText = 'Incorrect. The correct answer is 5/8.';
+                        response.className = 'incorrect';
+                    }
+                    break;
+                case 3:
+                    if (option === 'A') {
+                        response.innerText = 'Correct! 2/5 + 1/10 = 3/5';
+                        response.className = 'correct';
+                    } else {
+                        response.innerText = 'Incorrect. The correct answer is 3/5.';
+                        response.className = 'incorrect';
+                    }
+                    break;
+                case 4:
+                    if (option === 'C') {
+                        response.innerText = 'Correct! 5/6 - 1/3 = 2/3';
+                        response.className = 'correct';
+                    } else {
+                        response.innerText = 'Incorrect. The correct answer is 2/3.';
+                        response.className = 'incorrect';
+                    }
+                    break;
+                case 5:
+                    if (option === 'A') {
+                        response.innerText = 'Correct! 3/8 ÷ 2 = 3/16';
+                        response.className = 'correct';
+                    } else {
+                        response.innerText = 'Incorrect. The correct answer is 3/16.';
+                        response.className = 'incorrect';
+                    }
+                    break;
+                default:
+                    response.innerText = 'Please select an option.';
+                    response.className = '';
+            }
+
+            feedback.className = '';
+        }
+    </script>
+</body>
+</html>
