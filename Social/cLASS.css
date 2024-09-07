@@ -112,7 +112,7 @@ main {
     text-align: center;
 }
 
-.about-section h2 {
+.about-section h2 a {
     font-size: 2em;
     margin-bottom: 20px;
 }

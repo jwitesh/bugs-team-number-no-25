@@ -5,10 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Math Quiz</title>
     <style>
-        .hidden { display: none; }
-        .correct { color: green; }
-        .incorrect { color: red; }
-        .quiz-container { margin-bottom: 20px; }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e9ecef;
+            color: #495057;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 20px 0;
+            color: #007bff;
+        }
+
+        .quiz-container {
+            width: 80%;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            color: #ffffff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            margin: 5px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .feedback {
+            margin-top: 10px;
+            font-size: 16px;
+            font-style: italic;
+        }
+
+        .correct {
+            color: #28a745;
+        }
+
+        .incorrect {
+            color: #dc3545;
+        }
     </style>
 </head>
 <body>
@@ -84,54 +145,54 @@
                 case 1:
                     if (option === 'A') {
                         response.innerText = 'Correct! 1/2 + 1/4 = 3/4';
-                        response.className = 'correct';
+                        response.className = 'feedback correct';
                     } else {
                         response.innerText = 'Incorrect. The correct answer is 3/4.';
-                        response.className = 'incorrect';
+                        response.className = 'feedback incorrect';
                     }
                     break;
                 case 2:
                     if (option === 'A') {
                         response.innerText = 'Correct! 3/4 - 1/8 = 5/8';
-                        response.className = 'correct';
+                        response.className = 'feedback correct';
                     } else {
                         response.innerText = 'Incorrect. The correct answer is 5/8.';
-                        response.className = 'incorrect';
+                        response.className = 'feedback incorrect';
                     }
                     break;
                 case 3:
                     if (option === 'A') {
                         response.innerText = 'Correct! 2/5 + 1/10 = 3/5';
-                        response.className = 'correct';
+                        response.className = 'feedback correct';
                     } else {
                         response.innerText = 'Incorrect. The correct answer is 3/5.';
-                        response.className = 'incorrect';
+                        response.className = 'feedback incorrect';
                     }
                     break;
                 case 4:
                     if (option === 'C') {
                         response.innerText = 'Correct! 5/6 - 1/3 = 2/3';
-                        response.className = 'correct';
+                        response.className = 'feedback correct';
                     } else {
                         response.innerText = 'Incorrect. The correct answer is 2/3.';
-                        response.className = 'incorrect';
+                        response.className = 'feedback incorrect';
                     }
                     break;
                 case 5:
                     if (option === 'A') {
                         response.innerText = 'Correct! 3/8 ÷ 2 = 3/16';
-                        response.className = 'correct';
+                        response.className = 'feedback correct';
                     } else {
                         response.innerText = 'Incorrect. The correct answer is 3/16.';
-                        response.className = 'incorrect';
+                        response.className = 'feedback incorrect';
                     }
                     break;
                 default:
                     response.innerText = 'Please select an option.';
-                    response.className = '';
+                    response.className = 'feedback';
             }
 
-            feedback.className = '';
+            feedback.classList.remove('hidden');
         }
     </script>
 </body>
