@@ -3,39 +3,225 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Social Science Quiz for Class 6</title>
-    <link rel="stylesheet" href="quiz-styles.css">
+    <title>Social Science and History Quizzes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .quiz-section {
+            margin-bottom: 30px;
+        }
+
+        .quiz-question {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #ecf0f1;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        label {
+            display: block;
+            margin: 5px 0;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .feedback {
+            font-size: 14px;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        .correct-answer {
+            color: #27ae60;
+        }
+
+        .incorrect-answer {
+            color: #e74c3c;
+        }
+
+        #submit-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #3498db;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #submit-btn:hover {
+            background-color: #2980b9;
+        }
+
+        #results {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <!-- Class 6 Social Science Quiz -->
+        <h2>Class 6 Social Science Quiz</h2>
 
-    <header>
-        <h1>Class 6 Social Science Quiz</h1>
-        <p>Test your knowledge of Geography, History, Civics, and Economics!</p>
-    </header>
-
-    <main>
-        <section class="quiz-container">
-            <div id="question-container" class="question-container">
-                <h2 id="question">Question will appear here</h2>
-                <div class="answers">
-                    <button class="answer-btn" onclick="selectAnswer(0)">Answer 1</button>
-                    <button class="answer-btn" onclick="selectAnswer(1)">Answer 2</button>
-                    <button class="answer-btn" onclick="selectAnswer(2)">Answer 3</button>
-                    <button class="answer-btn" onclick="selectAnswer(3)">Answer 4</button>
-                </div>
+        <h3>Indus Valley Civilization</h3>
+        <div class="quiz-section" id="class6-indus">
+            <div class="quiz-question">
+                <p>1. What was a major city of the Indus Valley Civilization?</p>
+                <label><input type="radio" name="indus6_1" value="a" data-correct="true"> Harappa</label>
+                <label><input type="radio" name="indus6_1" value="b"> Babylon</label>
+                <label><input type="radio" name="indus6_1" value="c"> Athens</label>
+                <label><input type="radio" name="indus6_1" value="d"> Rome</label>
+                <p class="feedback" data-answer="a"></p>
             </div>
-            <button id="next-btn" class="next-btn" onclick="nextQuestion()">Next Question</button>
-        </section>
-        <section class="result-container" id="result-container">
-            <h2>Your Score: <span id="score">0</span> out of <span id="total-questions"></span></h2>
-            <button onclick="restartQuiz()">Restart Quiz</button>
-        </section>
-    </main>
+            <!-- Additional questions for Indus Valley Civilization -->
+        </div>
 
-    <footer>
-        <p>&copy; 2024 Social Science for Class 6</p>
-    </footer>
+        <h3>Ancient Egypt</h3>
+        <div class="quiz-section" id="class6-egypt">
+            <div class="quiz-question">
+                <p>1. What was the primary writing material used in Ancient Egypt?</p>
+                <label><input type="radio" name="egypt6_1" value="a"> Papyrus</label>
+                <label><input type="radio" name="egypt6_1" value="b" data-correct="true"> Papyrus</label>
+                <label><input type="radio" name="egypt6_1" value="c"> Clay tablets</label>
+                <label><input type="radio" name="egypt6_1" value="d"> Animal skins</label>
+                <p class="feedback" data-answer="b"></p>
+            </div>
+            <!-- Additional questions for Ancient Egypt -->
+        </div>
 
-    <script src="quiz.jss"></script>
+        <h3>Ancient Greece</h3>
+        <div class="quiz-section" id="class6-greece">
+            <div class="quiz-question">
+                <p>1. Who was the king of the Greek gods?</p>
+                <label><input type="radio" name="greece6_1" value="a" data-correct="true"> Zeus</label>
+                <label><input type="radio" name="greece6_1" value="b"> Apollo</label>
+                <label><input type="radio" name="greece6_1" value="c"> Hermes</label>
+                <label><input type="radio" name="greece6_1" value="d"> Poseidon</label>
+                <p class="feedback" data-answer="a"></p>
+            </div>
+            <!-- Additional questions for Ancient Greece -->
+        </div>
+
+        <h3>The Roman Empire</h3>
+        <div class="quiz-section" id="class6-rome">
+            <div class="quiz-question">
+                <p>1. What was the capital of the Roman Empire?</p>
+                <label><input type="radio" name="rome6_1" value="a" data-correct="true"> Rome</label>
+                <label><input type="radio" name="rome6_1" value="b"> Athens</label>
+                <label><input type="radio" name="rome6_1" value="c"> Carthage</label>
+                <label><input type="radio" name="rome6_1" value="d"> Alexandria</label>
+                <p class="feedback" data-answer="a"></p>
+            </div>
+            <!-- Additional questions for The Roman Empire -->
+        </div>
+
+        <!-- Class 7 Social Science Quiz -->
+        <h2>Class 7 Social Science Quiz</h2>
+
+        <h3>Civics: Understanding Government</h3>
+        <div class="quiz-section" id="class7-civics">
+            <div class="quiz-question">
+                <p>1. What is the primary function of a government?</p>
+                <label><input type="radio" name="gov7_1" value="a"> To control the economy</label>
+                <label><input type="radio" name="gov7_1" value="b" data-correct="true"> To organize and regulate society</label>
+                <label><input type="radio" name="gov7_1" value="c"> To make laws</label>
+                <label><input type="radio" name="gov7_1" value="d"> To manage international relations</label>
+                <p class="feedback" data-answer="b"></p>
+            </div>
+            <!-- Additional questions for Understanding Government -->
+        </div>
+
+        <!-- Class 8 Social Science Quiz -->
+        <h2>Class 8 Social Science Quiz</h2>
+
+        <h3>Civics: Democracy and Governance</h3>
+        <div class="quiz-section" id="class8-civics">
+            <div class="quiz-question">
+                <p>1. What defines a democratic government?</p>
+                <label><input type="radio" name="dem8_1" value="a" data-correct="true"> Rule by elected representatives</label>
+                <label><input type="radio" name="dem8_1" value="b"> Rule by a single leader</label>
+                <label><input type="radio" name="dem8_1" value="c"> Rule by military force</label>
+                <label><input type="radio" name="dem8_1" value="d"> Rule by hereditary monarchy</label>
+                <p class="feedback" data-answer="a"></p>
+            </div>
+            <!-- Additional questions for Democracy and Governance -->
+        </div>
+
+        <h3>History: The Age of Exploration</h3>
+        <div class="quiz-section" id="class8-exploration">
+            <div class="quiz-question">
+                <p>1. Who was a famous explorer of the Age of Exploration?</p>
+                <label><input type="radio" name="explore8_1" value="a"> Christopher Columbus</label>
+                <label><input type="radio" name="explore8_1" value="b" data-correct="true"> Christopher Columbus</label>
+                <label><input type="radio" name="explore8_1" value="c"> Marco Polo</label>
+                <label><input type="radio" name="explore8_1" value="d"> Ferdinand Magellan</label>
+                <p class="feedback" data-answer="b"></p>
+            </div>
+            <!-- Additional questions for The Age of Exploration -->
+        </div>
+
+        <button id="submit-btn">Submit</button>
+        <div id="results" class="results"></div>
+    </div>
+
+    <script>
+        document.getElementById('submit-btn').addEventListener('click', function() {
+            const questions = document.querySelectorAll('.quiz-question');
+            let score = 0;
+
+            questions.forEach(question => {
+                const selectedOption = question.querySelector('input:checked');
+                const feedback = question.querySelector('.feedback');
+
+                if (selectedOption) {
+                    if (selectedOption.dataset.correct === 'true') {
+                        feedback.textContent = 'Correct!';
+                        feedback.className = 'feedback correct-answer';
+                        score++;
+                    } else {
+                        feedback.textContent = `Incorrect. The right answer is ${question.querySelector('input[data-correct="true"]').parentElement.textContent.trim()}.`;
+                        feedback.className = 'feedback incorrect-answer';
+                    }
+                } else {
+                    feedback.textContent = 'Please select an option.';
+                    feedback.className = 'feedback';
+                }
+            });
+
+            document.getElementById('results').textContent = `Your score: ${score}/${questions.length}`;
+        });
+    </script>
 </body>
 </html>
