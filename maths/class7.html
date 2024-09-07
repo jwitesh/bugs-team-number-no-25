@@ -95,6 +95,23 @@
         footer p {
             margin: 0;
         }
+        .quiz-content {
+    font-size: 1.2em;
+}
+
+.quiz-content button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.quiz-content button:hover {
+    background-color: #45a049;
+}
     </style>
 </head>
 <body>
@@ -134,10 +151,34 @@
             </div>
         </div>
     </main>
-
+    <section id="quiz" class="quiz-section">
+        <h2>Take a Quiz</h2>
+        <div class="quiz-content">
+            <p>Test your knowledge on Geography, History, Civics, and Economics!</p>
+            <button onclick="startQuiz()">Start Quiz</button>
+        </div>
+    </section>
+    
+    <!-- About Us Section -->
+    <section id="about" class="about-section">
+        <h2>About Us</h2>
+        <p>Welcome to our Class 6 Social Science learning platform! We aim to make learning fun and interactive for young students through engaging topics and quizzes. Our platform helps you understand the world around you with interesting lessons on Geography, History, Civics, and Economics.</p>
+    </section>
+    </main>
+    
+    <!-- Footer Section -->
     <footer>
-        <p>&copy; 2024 Math Learning Platform</p>
+    <p>&copy; 2024 Social Science for Class 6</p>
     </footer>
+    
+    <!-- JavaScript (Optional) -->
+    <script>
+    function startQuiz() {
+        window.location.href = "Quiz2.html";
+    }
+    </script>
+
+    
 
 </body>
 </html>

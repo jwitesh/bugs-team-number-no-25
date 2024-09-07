@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 8 Maths Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .quiz-container {
+            width: 80%;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .quiz-container h2 {
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+            color: #007bff;
+        }
+
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            color: #ffffff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            margin: 5px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .feedback {
+            margin-top: 10px;
+            font-size: 16px;
+            font-style: italic;
+        }
+
+        .correct {
+            color: #28a745;
+        }
+
+        .incorrect {
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <h1>Class 8 Maths Quiz</h1>
+
+    <div id="math-quiz" class="quiz-container">
+        <h2>Math Quiz</h2>
+        <div id="math-question1">
+            <p>1. What is the value of 2³?</p>
+            <button onclick="checkAnswer('math', 1, 'A')">A) 6</button>
+            <button onclick="checkAnswer('math', 1, 'B')">B) 8</button>
+            <button onclick="checkAnswer('math', 1, 'C')">C) 9</button>
+            <button onclick="checkAnswer('math', 1, 'D')">D) 10</button>
+            <div id="math-feedback1" class="hidden">
+                <p id="math-response1"></p>
+            </div>
+        </div>
+
+        <div id="math-question2">
+            <p>2. What is the perimeter of a rectangle with length 12 cm and width 5 cm?</p>
+            <button onclick="checkAnswer('math', 2, 'A')">A) 34 cm</button>
+            <button onclick="checkAnswer('math', 2, 'B')">B) 40 cm</button>
+            <button onclick="checkAnswer('math', 2, 'C')">C) 50 cm</button>
+            <button onclick="checkAnswer('math', 2, 'D')">D) 60 cm</button>
+            <div id="math-feedback2" class="hidden">
+                <p id="math-response2"></p>
+            </div>
+        </div>
+
+        <div id="math-question3">
+            <p>3. What is 7² - 3²?</p>
+            <button onclick="checkAnswer('math', 3, 'A')">A) 40</button>
+            <button onclick="checkAnswer('math', 3, 'B')">B) 46</button>
+            <button onclick="checkAnswer('math', 3, 'C')">C) 50</button>
+            <button onclick="checkAnswer('math', 3, 'D')">D) 54</button>
+            <div id="math-feedback3" class="hidden">
+                <p id="math-response3"></p>
+            </div>
+        </div>
+
+        <div id="math-question4">
+            <p>4. What is the area of a triangle with base 10 cm and height 6 cm?</p>
+            <button onclick="checkAnswer('math', 4, 'A')">A) 30 cm²</button>
+            <button onclick="checkAnswer('math', 4, 'B')">B) 60 cm²</button>
+            <button onclick="checkAnswer('math', 4, 'C')">C) 40 cm²</button>
+            <button onclick="checkAnswer('math', 4, 'D')">D) 20 cm²</button>
+            <div id="math-feedback4" class="hidden">
+                <p id="math-response4"></p>
+            </div>
+        </div>
+
+        <div id="math-question5">
+            <p>5. What is the cube root of 27?</p>
+            <button onclick="checkAnswer('math', 5, 'A')">A) 2</button>
+            <button onclick="checkAnswer('math', 5, 'B')">B) 3</button>
+            <button onclick="checkAnswer('math', 5, 'C')">C) 4</button>
+            <button onclick="checkAnswer('math', 5, 'D')">D) 5</button>
+            <div id="math-feedback5" class="hidden">
+                <p id="math-response5"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkAnswer(subject, questionNumber, option) {
+            const feedback = document.getElementById(`${subject}-feedback${questionNumber}`);
+            const response = document.getElementById(`${subject}-response${questionNumber}`);
+
+            // Hide buttons for this question
+            const buttons = document.querySelectorAll(`#${subject}-question${questionNumber} button`);
+            buttons.forEach(button => button.disabled = true);
+
+            const answers = {
+                'math': { 1: 'B', 2: 'A', 3: 'A', 4: 'A', 5: 'B' }
+            };
+
+            const correctAnswer = answers[subject][questionNumber];
+            if (option === correctAnswer) {
+                response.innerText = 'Correct!';
+                response.className = 'feedback correct';
+            } else {
+                const correctOption = document.querySelector(`#${subject}-question${questionNumber} button:nth-of-type(${Object.keys(answers[subject]).indexOf(correctAnswer) + 1})`);
+                response.innerText = `Incorrect. The correct answer is ${correctOption.innerText}.`;
+                response.className = 'feedback incorrect';
+            }
+
+            feedback.classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
