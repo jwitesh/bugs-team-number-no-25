@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        h2{
+            background-color: #1e2edb;
+            color: #fff;
+            align-items: center;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80hv;
+            margin: 0;
+            background-color: #b9c6b5;
+        }
+        .container {
+            max-width: 400px;
+            width: 90%;
+            background: #dae4d7;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgb(3, 82, 239);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #db1e1e;
+            border-radius: 4px;
+        }
+        .form-group button {
+            background-color: #1e3adb;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+        .form-group button:hover {
+            background-color: #0037ff;
+        }
+        .error {
+            color: rgb(255, 0, 0);
+            font-size: 14px;
+        }
+ 
+        /* Hide the default radio button */
+            input[type="radio"] {
+            display: none;
+        }
+ 
+        /* Create a custom radio button */
+        .custom-radio {
+            position: relative;
+            padding-left: 25px;
+            cursor: pointer;
+            display: inline-block;
+            user-select: none;
+        }
+ 
+        /* Create the custom radio button indicator */
+        .custom-radio::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            border: 2px solid #1e6adb;
+            border-radius: 50%;
+            background-color: #fff;
+        }
+ 
+        /* Change the color when the radio button is checked */
+        input[type="radio"]:checked + .custom-radio::before {
+            background-color: #0008ff;
+            border-color: #fff;
+        }
+ 
+        /* Add a dot inside the custom radio button when checked */
+        input[type="radio"]:checked + .custom-radio::after {
+            content: "";
+            position: absolute;
+            left: 4px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background-color: #241edb;
+            border-radius: 50%;
+        }
+       
+       
+        input[type="date"] {
+                background-color: #f4f4f4;
+                color: #333;
+                border: 1px solid #2600ff;
+                border-radius: 4px;
+                padding: 10px;
+                font-size: 16px;
+        }
+ 
+        input[type="date"]::-webkit-calendar-picker-indicator {
+                background-color: #1100ff;
+                border-radius: 50%;
+                padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 style="text-align: center;">SIGN UP</h2>
+        <h2></h2>
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <div class="error" id="usernameError"></div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <div class="error" id="emailError"></div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <div class="error" id="passwordError"></div>
+            </div>
+            <div class="form-group">
+                <label for="confirm_password" >Confirm Password :</label>
+                <input type="password" id="confirm_password" name="confirm_password" required>
+                <div class="error" id="passwordError"></div>
+            </div>
+            <div class="form-group">
+                <label for="dob" >Date of Birth</label>
+                <input type="date" id="dob" name="dob" required>
+                <div class="error" id="dobError"></div>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <div>
+                    <input type="radio" id="male" name="gender" value="Male" required >
+                    <label for="male" class="custom-radio">Male</label>
+                </div>
+                <div>
+                    <input type="radio" id="female" name="gender" value="Female">
+                    <label for="female" class="custom-radio">Female</label>
+                </div>
+                <div>
+                    <input type="radio" id="other" name="gender" value="Other">
+                    <label for="other" class="custom-radio">Other</label>
+                </div>
+                <div class="error" id="genderError"></div>
+            </div>
+ 
+            <div class="form-group">
+                <label for="address" >Address :</label>
+                <input type="textarea" id="address" name="address" rows="4" cols="50" required>
+                <div class="error" id="addressError"></div>
+            </div>
+ 
+            <div class="form-group">
+                <label for="country" >Country :</label>
+                <input type="select" id="country" name="country" required>
+                <div class="error" id="countryError"></div>
+            </div>
+           
+            <div class="form-group">
+                <button type="submit">Register</button>
+            </div>
+ 
+           
+           
+        </form>
+    </div>
+ 
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+           
+            // Clear previous error messages
+            document.getElementById('usernameError').textContent = '';
+            document.getElementById('emailError').textContent = '';
+            document.getElementById('passwordError').textContent = '';
+            document.getElementById('passwordError').textContent = '';
+            document.getElementById('dobError').textContent = '';    
+            document.getElementById('genderError').textContent = '';
+            document.getElementById('addressError').textContent = '';
+            document.getElementById('countryError').textContent = '';
+ 
+ 
+            // Get form values
+            const username = document.getElementById('username').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+           
+            let valid = true;
+           
+            // Validate username
+            if (username === '') {
+                document.getElementById('usernameError').textContent = 'Username is required.';
+                valid = false;
+            }
+           
+            // Validate email
+            if (email === '') {
+                document.getElementById('emailError').textContent = 'Email is required.';
+                valid = false;
+            } else if (!/\S+@\S+\.\S+/.test(email)) {
+                document.getElementById('emailError').textContent = 'Email is invalid.';
+                valid = false;
+            }
+           
+            // Validate password
+            if (password === '') {
+                document.getElementById('passwordError').textContent = 'Password is required.';
+                valid = false;
+            } else if (password.length < 6) {
+                document.getElementById('passwordError').textContent = 'Password must be at least 6 characters long.';
+                valid = false;
+            }
+ 
+            //Validate Confirm password
+            if (password === '') {
+                document.getElementById('passwordError').textContent = 'Password is required.';
+                valid = false;
+            } else if (password.length < 6) {
+                document.getElementById('passwordError').textContent = 'Password must be at least 6 characters long.';
+                valid = false;
+            }
+ 
+            // Validate dob
+            if (dob == '') {
+                document.getElementById('dobError').textContent = 'Date of Birth is required.';
+                valid = false;
+            }
+ 
+            //Validate gender
+ 
+            if (!gender) {
+                document.getElementById('genderError').textContent = 'Gender is required.';
+                valid = false;
+            }
+           
+            //Validate address
+ 
+        if (address == '') {
+            document.getElementById('addressError').textContent = 'Address is required.';
+            valid = false;
+        }
+ 
+        //Country validate
+        if (country == '') {
+            document.getElementById('countryError').textContent = 'Country is required.';
+            valid = false;
+        }
+            // If form is valid, proceed (e.g., send data to server)
+            if (valid) {
+                alert('Registration successful!');
+            // Here you would typically send the data to the server
+            }
+        });
+    </script>
+ 
+</body>
+</html>
