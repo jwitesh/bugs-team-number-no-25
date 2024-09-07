@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Learning Fun!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e0f7fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+   
+        .box {
+            background: #ffffff;
+            border: 2px solid #00796b;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            width: 30%;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .box h2 {
+            margin-top: 0;
+            color: #00796b;
+        }
+        .box button {
+            background-color: #00796b;
+            border: none;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .box button:hover {
+            background-color: #004d40;
+        }
+        .quiz-questions, .puzzle-content {
+            margin-top: 20px;
+        }
+        input[type="radio"], input[type="text"] {
+            margin: 10px;
+        }
+        .hidden {
+            display: none;
+        }
+        footer {
+            background-color: #00796b;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Learning Fun!</h1>
+        <p>Interactive puzzles, quizzes, and more for students in grades 6-8.</p>
+    </header>
+
+  
+
+        <div class="box" id="quiz-box">
+            <h2>Quiz Challenge</h2>
+            <form id="quiz-form">
+                <div class="quiz-questions">
+                    <p>1. What is the largest planet in our solar system?</p>
+                    <label><input type="radio" name="question1" value="A"> A) Earth</label><br>
+                    <label><input type="radio" name="question1" value="B"> B) Mars</label><br>
+                    <label><input type="radio" name="question1" value="C"> C) Jupiter</label><br>
+                    <label><input type="radio" name="question1" value="D"> D) Saturn</label><br>
+                </div>
+                <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+                <p id="quiz-result" class="hidden"></p>
+            </form>
+        </div>
+
+        <div class="box" id="fun-facts-box">
+            <h2>Fun Facts</h2>
+            <p>Learn something new today:</p>
+            <ul>
+                <li>Sharks have been around longer than trees.</li>
+                <li>Butterflies taste with their feet.</li>
+                <li>Honey never spoils and has been found in ancient Egyptian tombs still edible.</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Learning Fun Institute. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function checkPuzzleAnswer() {
+            const answer = document.getElementById('puzzle-answer').value.trim().toLowerCase();
+            const result = document.getElementById('puzzle-result');
+            if (answer === 'echo') {
+                result.textContent = 'Correct! 🎉';
+                result.style.color = 'green';
+            } else {
+                result.textContent = 'Oops! Try again.';
+                result.style.color = 'red';
+            }
+            result.classList.remove('hidden');
+        }
+
+        function submitQuiz() {
+            const answer = document.querySelector('input[name="question1"]:checked');
+            const result = document.getElementById('quiz-result');
+            if (answer) {
+                if (answer.value === 'C') {
+                    result.textContent = 'Correct! 🎉';
+                    result.style.color = 'green';
+                } else {
+                    result.textContent = 'Incorrect. The correct answer is C) Jupiter.';
+                    result.style.color = 'red';
+                }
+            } else {
+                result.textContent = 'Please select an answer.';
+                result.style.color = 'red';
+            }
+            result.classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>

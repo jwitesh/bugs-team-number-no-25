@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #e0f7fa;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+             header {
+            background-color: #00796b;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box" id="puzzle-box">
+            <h2>Puzzle Time!</h2>
+            <p>Solve this brain teaser:</p>
+            <p><strong>I speak without a mouth and hear without ears. I have nobody, but I come alive with the wind. What am I?</strong></p>
+            <input type="text" id="puzzle-answer" placeholder="Your answer">
+            <button onclick="checkPuzzleAnswer()">Submit</button>
+            <p id="puzzle-result" class="hidden"></p>
+        </div>
+</body>
+</html>
